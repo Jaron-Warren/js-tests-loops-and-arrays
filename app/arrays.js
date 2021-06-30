@@ -4,6 +4,10 @@
 // output: ['is', 'a', 'split', 'sentence.', 'This']
 
 function rearranger(arr) {
+    let element = arr[0]
+    arr.push(element)
+    arr.splice(0, 1)
+    return arr
 }
 
 
@@ -16,6 +20,7 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
+    return Math.max(...arr)
 }
 
 
@@ -28,6 +33,12 @@ function largestNum(arr) {
 // output: [16, 8, 4, 28]
 
 function elemsTimesLength(arr) {
+    let L = arr.length
+    let newarray = []
+    for (let i = 0; i <= L; i++) {
+        newarray[i] = arr[i] * L
+    }
+    return newarray
 }
 
 
@@ -62,8 +73,15 @@ let flights = [{
 
 
 function flightCost(destination, firstClass) {
-    //***hint: use the find method***
-
+    let flightDestination = destination.toUpperCase()
+    let flightClass
+    if (firstClass) {
+        flightClass = 'firstClass'
+    } else {
+        flightClass = 'standard'
+    }
+    let flight = flights.find(flight => flight.to == flightDestination)
+    return flight.prices[flightClass]
 }
 
 
@@ -83,8 +101,14 @@ let staff = [{ id: 1, name: 'Jon' }, { id: 2, name: 'Yuli' }, { id: 21, name: 'P
 { id: 17, name: 'St. MaryLou de la Playa Carmen' }, { id: 51, name: 'Doug' },
 { id: 881, name: 'Paul' }, { id: 0, name: 'Jon' }, { id: 999, name: 'Timma' }]
 
-function findById(id) {
-
+function findById(num) {
+    let member = staff.find(entry => entry.id == num)
+    if (member) {
+        return member
+    } else {
+        let error = { error: 'error' }
+        return error
+    }
 }
 
 
@@ -110,5 +134,8 @@ let theBand = {
     }]
 }
 
+// for loop over theband.members.length 
 function bandMemberDetails(name) {
+    member = theBand.members.find(member => member.name == )
+    console.log(member)
 }
